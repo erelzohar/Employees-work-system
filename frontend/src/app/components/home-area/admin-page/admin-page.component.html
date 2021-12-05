@@ -1,0 +1,26 @@
+<div>
+    <a href="javascript:;" (click)="openDialog()"><mat-icon>add_circle_outline</mat-icon>Add</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full name</th>
+                <th scope="col">Monthly hours</th>
+                <th scope="col">Monthly sessions</th>
+                <th scope="col">Working</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employees; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>
+                    {{ emp.fullName }}
+                </td>
+                <td>{{ emp.totalHours.toFixed(2) }}</td>
+                <td>{{ emp.totalSessions }}</td>
+                <td *ngIf="emp.isWorking"> <mat-icon>check_circle_outline</mat-icon></td>
+                <td *ngIf="!emp.isWorking">  <mat-icon>highlight_off</mat-icon></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

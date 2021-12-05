@@ -1,0 +1,4 @@
+<button *ngIf ="!user.isWorking" (click)='startTimer()' mat-fab color="primary">Start Work</button>
+<button *ngIf = "user.isWorking" (click)='pauseTimer()' mat-fab color="warn">Pause Work</button>
+
+<h3>{{display }}</h3> 

@@ -1,0 +1,40 @@
+<form #myForm="ngForm">
+<h2 mat-dialog-title>New Employee : </h2>
+<mat-dialog-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Full name : </mat-label>
+            <input matInput #fullNameBox="ngModel" type="text" [(ngModel)]="newEmployee.fullName" name="fullName"
+                required minlength="5" max="25">
+            <mat-error *ngIf="fullNameBox.errors?.required && fullNameBox.touched">Missing name.</mat-error>
+            <mat-error *ngIf="fullNameBox.errors?.minlength && fullNameBox.touched">Minimum 5 characters.</mat-error>
+            <mat-error *ngIf="fullNameBox.errors?.maxlength && fullNameBox.touched">Maximum 25 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Phone number : </mat-label>
+            <input matInput #phoneBox="ngModel" type="text" [(ngModel)]="newEmployee.phoneNumber" name="phoneNumber" required
+                pattern="^05\d([-]{0,1})\d{7}$">
+            <mat-error *ngIf="phoneBox.invalid && phoneBox.touched">Invalid number.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password: </mat-label>
+            <input matInput #passwordBox="ngModel" type="password" [(ngModel)]="newEmployee.password" name="password"
+                minlength="6" maxlength="50" required>
+            <mat-error *ngIf="passwordBox.errors?.minlength && passwordBox.touched">Min 6 characters.</mat-error>
+            <mat-error *ngIf="passwordBox.errors?.maxlength && passwordBox.touched">Max 50 characters.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Confirm password: </mat-label>
+            <input matInput #passConfirmBox="ngModel" type="password" [(ngModel)]="passConfirm" name="passConfirm"
+                minlength="6" maxlength="50" required>
+            <mat-error *ngIf="passConfirmBox.errors?.minlength && passConfirmBox.touched">Min 6 characters.</mat-error>
+            <mat-error *ngIf="passConfirmBox.errors?.maxlength && passConfirmBox.touched">Max 50 characters.
+            </mat-error>
+        </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button [disabled]="myForm.form.invalid" mat-stroked-button  mat-dialog-close (click)="add()" >Add</button>
+</mat-dialog-actions>
+</form>
