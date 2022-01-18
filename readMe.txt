@@ -1,9 +1,9 @@
-תיקיית employees  היא תיקיית הדאטה בייס של מונגו.
+employees is the mongodb local files (for tests)
 
-אדמין-
-טלפון- 0502345555
-סיסמא-123456
+admin:
+phone- 0502345555
+pass-123456
 
-יוזר פשוט -
-טלפון-0502345678
-סיסמא-123456
+simple user -
+phone-0502345678
+pass-123456
